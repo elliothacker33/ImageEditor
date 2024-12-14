@@ -23,24 +23,29 @@ CXXFLAGS+= -g
 CXXFLAGS+= -fsanitize=address -fsanitize=undefined
 
 
+SRC = src
+INCLUDE = include
+TEST = test
+
+
+CXXFLAGS+=-I $(INCLUDE) 
 
 # C++ source files to consider in compilation for all programs
-COMMON_CPP_FILES=Color.cpp Image.cpp Script.cpp PNG.cpp XPM2.cpp 
+COMMON_CPP_FILES= $(SRC)/Color.cpp $(SRC)/Image.cpp $(SRC)/Script.cpp $(SRC)/PNG.cpp $(SRC)/XPM2.cpp
 
 # C++ header files to consider in compilation
-HEADERS=${COMMON_CPP_FILES:.cpp=.hpp}
-
+HEADERS= $(INCLUDE)/Color.hpp $(INCLUDE)/Image.hpp $(INCLUDE)/Script.hpp $(INCLUDE)/PNG.hpp $(INCLUDE)/XPM2.hpp 
 
 PROGRAMS=runscript test
 
 all: $(PROGRAMS)
 
 
-runscript:  $(HEADERS) $(COMMON_CPP_FILES) runscript.cpp
-	$(CXX) -o runscript runscript.cpp $(COMMON_CPP_FILES) $(CXXFLAGS)
+runscript:  $(HEADERS) $(COMMON_CPP_FILES) $(SRC)/runscript.cpp
+	$(CXX) -o runscript $(SRC)/runscript.cpp $(COMMON_CPP_FILES) $(CXXFLAGS)
 
-test:  $(HEADERS) $(COMMON_CPP_FILES) test.cpp
-	$(CXX) -o test test.cpp $(COMMON_CPP_FILES) $(CXXFLAGS)
+test:  $(HEADERS) $(COMMON_CPP_FILES) $(SRC)/test.cpp
+	$(CXX) -o test $(SRC)/test.cpp $(COMMON_CPP_FILES) $(CXXFLAGS)
 
 clean: 
 	rm -fr *.dSYM $(PROGRAMS)
