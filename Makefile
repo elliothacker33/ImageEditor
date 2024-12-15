@@ -40,7 +40,6 @@ PROGRAMS=runscript test
 
 all: $(PROGRAMS)
 
-
 runscript:  $(HEADERS) $(COMMON_CPP_FILES) $(SRC)/runscript.cpp
 	$(CXX) -o runscript $(SRC)/runscript.cpp $(COMMON_CPP_FILES) $(CXXFLAGS)
 
