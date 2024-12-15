@@ -12,14 +12,17 @@ This tool supports processing PNG images and applying various manipulations thro
 **For example**:
 
 **Input**
+
 ![reptiles](input/escher-reptiles.png)
 
 **Test**
+
 ```bash
 ./test h_mirror4 # Test horizontal mirror
 ``` 
 
 **Output**
+
 ![reptiles](output/h_mirror4.png)
 
 
