@@ -50,6 +50,10 @@ To create an image, three variables are required: the **width**, **height**, and
 
 Inside of the script file, contains various functions that can manipulate the image.
 
+**Files**
+- **[Script.hpp](include/Script.hpp):** Header file defining the Script class.
+- **[Script.cpp](src/Script.cpp):** Implementation of the Script class.
+
 
 
 
